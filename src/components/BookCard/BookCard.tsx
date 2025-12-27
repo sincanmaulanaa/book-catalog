@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type { SearchableBook } from '@/types/book';
 import { RatingStars } from '@/components/RatingStars';
 import { AvailabilityBadge } from '@/components/AvailabilityBadge';
@@ -89,14 +90,13 @@ export function BookCard({ book }: BookCardProps) {
       </div>
 
       {/* Interactive overlay for screen readers */}
-      <a
-        href={`#book-${id}`}
+      <Link
+        href={`/books/${id}`}
         className='absolute inset-0 z-10'
         aria-label={`Lihat detail ${title}`}
-        tabIndex={0}
       >
         <span className='sr-only'>Lihat detail buku</span>
-      </a>
+      </Link>
     </article>
   );
 }

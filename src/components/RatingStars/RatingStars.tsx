@@ -1,13 +1,18 @@
 interface RatingStarsProps {
   rating: number;
   maxRating?: number;
+  showValue?: boolean;
 }
 
 /**
  * Visual star rating component
  * Displays filled, half-filled, and empty stars based on rating
  */
-export function RatingStars({ rating, maxRating = 5 }: RatingStarsProps) {
+export function RatingStars({
+  rating,
+  maxRating = 5,
+  showValue = true,
+}: RatingStarsProps) {
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.5;
   const emptyStars = maxRating - fullStars - (hasHalfStar ? 1 : 0);
@@ -31,9 +36,11 @@ export function RatingStars({ rating, maxRating = 5 }: RatingStarsProps) {
         <StarIcon key={`empty-${i}`} />
       ))}
 
-      <span className='ml-2 text-sm font-semibold text-slate-600 dark:text-slate-400'>
-        {rating.toFixed(1)}
-      </span>
+      {showValue && (
+        <span className='ml-2 text-sm font-semibold text-slate-600 dark:text-slate-400'>
+          {rating.toFixed(1)}
+        </span>
+      )}
     </div>
   );
 }
