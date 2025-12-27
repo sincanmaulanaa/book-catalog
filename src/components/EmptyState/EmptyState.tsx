@@ -10,7 +10,7 @@ export function EmptyState({ query }: EmptyStateProps) {
   return (
     <div className='flex flex-col items-center justify-center py-20 px-4 text-center'>
       {/* Illustration */}
-      <div className='mb-8 rounded-3xl bg-linear-to-br from-indigo-100 to-purple-100 p-8 dark:from-indigo-900/30 dark:to-purple-900/30'>
+      <div className='mb-8 rounded-3xl bg-emerald-100 p-8 dark:bg-emerald-900/30'>
         <BookSearchIcon />
       </div>
 
@@ -23,7 +23,7 @@ export function EmptyState({ query }: EmptyStateProps) {
         {query ? (
           <>
             Kami tidak menemukan buku yang cocok dengan{' '}
-            <span className='font-semibold text-indigo-600 dark:text-indigo-400'>
+            <span className='font-semibold text-emerald-600 dark:text-emerald-400'>
               &quot;{query}&quot;
             </span>
           </>
@@ -39,19 +39,19 @@ export function EmptyState({ query }: EmptyStateProps) {
         </p>
         <ul className='space-y-3 text-sm text-slate-600 dark:text-slate-400'>
           <li className='flex items-center gap-3'>
-            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/50'>
+            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50'>
               <CheckIcon />
             </div>
             Periksa kembali ejaan pencarianmu
           </li>
           <li className='flex items-center gap-3'>
-            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/50'>
+            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50'>
               <CheckIcon />
             </div>
             Gunakan kata kunci yang lebih umum
           </li>
           <li className='flex items-center gap-3'>
-            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/50'>
+            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50'>
               <CheckIcon />
             </div>
             Coba cari berdasarkan genre atau penerbit
@@ -65,7 +65,7 @@ export function EmptyState({ query }: EmptyStateProps) {
 function BookSearchIcon() {
   return (
     <svg
-      className='h-16 w-16 text-indigo-500 dark:text-indigo-400'
+      className='h-16 w-16 text-emerald-500 dark:text-emerald-400'
       fill='none'
       stroke='currentColor'
       viewBox='0 0 24 24'
@@ -86,7 +86,7 @@ function BookSearchIcon() {
 function CheckIcon() {
   return (
     <svg
-      className='h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400'
+      className='h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400'
       fill='none'
       stroke='currentColor'
       viewBox='0 0 24 24'
