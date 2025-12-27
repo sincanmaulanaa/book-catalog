@@ -78,7 +78,7 @@ export function ProductInfo({
       {/* Price */}
       <div className='rounded-2xl bg-emerald-50 p-6 dark:bg-emerald-950/30'>
         <div className='flex items-end gap-3'>
-          <span className='text-4xl font-bold text-emerald-600 dark:text-emerald-400'>
+          <span className='text-2xl md:text-4xl font-bold text-emerald-600 dark:text-emerald-400'>
             Rp {(price * 15000).toLocaleString('id-ID')}
           </span>
           {discountPercentage && discountPercentage > 0 && (
