@@ -10,20 +10,20 @@ interface ErrorStateProps {
 export function ErrorState({ message, onRetry }: ErrorStateProps) {
   return (
     <div
-      className='flex flex-col items-center justify-center py-16 px-4 text-center'
+      className='flex flex-col items-center justify-center py-20 px-4 text-center'
       role='alert'
     >
       {/* Error Icon */}
-      <div className='mb-6 rounded-full bg-red-100 p-6 dark:bg-red-900/20'>
+      <div className='mb-8 rounded-3xl bg-red-100 p-8 dark:bg-red-900/20'>
         <ErrorIcon />
       </div>
 
       {/* Message */}
-      <h3 className='mb-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100'>
-        Something went wrong
+      <h3 className='mb-3 text-2xl font-bold text-slate-900 dark:text-slate-100'>
+        Terjadi Kesalahan
       </h3>
 
-      <p className='mb-6 max-w-md text-base text-zinc-600 dark:text-zinc-400'>
+      <p className='mb-8 max-w-md text-base leading-relaxed text-slate-600 dark:text-slate-400'>
         {message}
       </p>
 
@@ -32,10 +32,10 @@ export function ErrorState({ message, onRetry }: ErrorStateProps) {
         <button
           type='button'
           onClick={onRetry}
-          className='inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-900'
+          className='inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition-all duration-300 hover:bg-indigo-700 hover:shadow-xl hover:shadow-indigo-500/40 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900'
         >
           <RetryIcon />
-          Try Again
+          Coba Lagi
         </button>
       )}
     </div>

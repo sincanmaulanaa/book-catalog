@@ -8,47 +8,53 @@ interface EmptyStateProps {
  */
 export function EmptyState({ query }: EmptyStateProps) {
   return (
-    <div className='flex flex-col items-center justify-center py-16 px-4 text-center'>
+    <div className='flex flex-col items-center justify-center py-20 px-4 text-center'>
       {/* Illustration */}
-      <div className='mb-6 rounded-full bg-zinc-100 p-6 dark:bg-zinc-800'>
+      <div className='mb-8 rounded-3xl bg-linear-to-br from-indigo-100 to-purple-100 p-8 dark:from-indigo-900/30 dark:to-purple-900/30'>
         <BookSearchIcon />
       </div>
 
       {/* Message */}
-      <h3 className='mb-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100'>
-        No books found
+      <h3 className='mb-3 text-2xl font-bold text-slate-900 dark:text-slate-100'>
+        Buku Tidak Ditemukan
       </h3>
 
-      <p className='mb-6 max-w-md text-base text-zinc-600 dark:text-zinc-400'>
+      <p className='mb-8 max-w-md text-base leading-relaxed text-slate-600 dark:text-slate-400'>
         {query ? (
           <>
-            We couldn&apos;t find any books matching{' '}
-            <span className='font-medium text-zinc-900 dark:text-zinc-200'>
+            Kami tidak menemukan buku yang cocok dengan{' '}
+            <span className='font-semibold text-indigo-600 dark:text-indigo-400'>
               &quot;{query}&quot;
             </span>
           </>
         ) : (
-          'There are no books to display at the moment.'
+          'Tidak ada buku untuk ditampilkan saat ini.'
         )}
       </p>
 
       {/* Suggestions */}
-      <div className='rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-800/50'>
-        <p className='mb-2 text-sm font-medium text-zinc-700 dark:text-zinc-300'>
-          Try these suggestions:
+      <div className='rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800/50'>
+        <p className='mb-4 text-sm font-semibold text-slate-700 dark:text-slate-300'>
+          Coba saran berikut:
         </p>
-        <ul className='space-y-1 text-sm text-zinc-600 dark:text-zinc-400'>
-          <li className='flex items-center gap-2'>
-            <CheckIcon />
-            Check for typos in your search
+        <ul className='space-y-3 text-sm text-slate-600 dark:text-slate-400'>
+          <li className='flex items-center gap-3'>
+            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/50'>
+              <CheckIcon />
+            </div>
+            Periksa kembali ejaan pencarianmu
           </li>
-          <li className='flex items-center gap-2'>
-            <CheckIcon />
-            Use more general keywords
+          <li className='flex items-center gap-3'>
+            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/50'>
+              <CheckIcon />
+            </div>
+            Gunakan kata kunci yang lebih umum
           </li>
-          <li className='flex items-center gap-2'>
-            <CheckIcon />
-            Try searching by genre or publisher
+          <li className='flex items-center gap-3'>
+            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/50'>
+              <CheckIcon />
+            </div>
+            Coba cari berdasarkan genre atau penerbit
           </li>
         </ul>
       </div>
@@ -59,7 +65,7 @@ export function EmptyState({ query }: EmptyStateProps) {
 function BookSearchIcon() {
   return (
     <svg
-      className='h-12 w-12 text-zinc-400 dark:text-zinc-500'
+      className='h-16 w-16 text-indigo-500 dark:text-indigo-400'
       fill='none'
       stroke='currentColor'
       viewBox='0 0 24 24'
@@ -80,7 +86,7 @@ function BookSearchIcon() {
 function CheckIcon() {
   return (
     <svg
-      className='h-4 w-4 flex-shrink-0 text-zinc-400'
+      className='h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400'
       fill='none'
       stroke='currentColor'
       viewBox='0 0 24 24'
@@ -89,8 +95,8 @@ function CheckIcon() {
       <path
         strokeLinecap='round'
         strokeLinejoin='round'
-        strokeWidth={2}
-        d='M9 12l2 2 4-4'
+        strokeWidth={2.5}
+        d='M5 13l4 4L19 7'
       />
     </svg>
   );
