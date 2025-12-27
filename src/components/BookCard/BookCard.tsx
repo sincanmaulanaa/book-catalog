@@ -12,7 +12,7 @@ interface BookCardProps {
  * Clean, minimal design with light green background
  */
 export function BookCard({ book }: BookCardProps) {
-  const { id, title, thumbnail, brand } = book;
+  const { id, title, thumbnail, brand, price } = book;
 
   return (
     <article
@@ -45,6 +45,11 @@ export function BookCard({ book }: BookCardProps) {
         {brand && (
           <p className='text-xs text-slate-500 dark:text-slate-400'>{brand}</p>
         )}
+
+        {/* Price */}
+        <p className='mt-2 text-sm font-bold text-emerald-600 dark:text-emerald-400'>
+          ${price.toFixed(2)}
+        </p>
       </div>
 
       {/* Hover Overlay - Read Button */}

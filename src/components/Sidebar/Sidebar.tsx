@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useCallback } from 'react';
 
 interface Category {
@@ -158,13 +159,15 @@ export function Sidebar({
         </button>
 
         {/* Logo */}
-        <div className='mb-8 flex items-center gap-3'>
-          <div className='flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-600 text-white'>
-            <span className='text-lg font-bold'>B</span>
-          </div>
-          <span className='text-lg font-bold text-slate-900 dark:text-white'>
-            Bookworm
-          </span>
+        <div className='mb-8'>
+          <Image
+            src='/logo-with-name.png'
+            alt='Bookworm'
+            width={140}
+            height={64}
+            className='h-16 w-auto dark:brightness-0 dark:invert'
+            priority
+          />
         </div>
 
         {/* Category Label */}
