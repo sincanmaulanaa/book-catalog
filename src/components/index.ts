@@ -10,3 +10,5 @@ export { RatingStars } from './RatingStars';
 export { AvailabilityBadge } from './AvailabilityBadge';
 export { Sidebar } from './Sidebar';
 export { HomeClient } from './HomeClient';
+export { AppLayout } from './AppLayout';
+export { BookDetailClient } from './BookDetailClient';
