@@ -17,7 +17,7 @@ Eksplorasi ribuan koleksi buku terbaik. Temukan kisah yang menginspirasi dan pen
 
 ---
 ## LIVE DEMO
-[https://wormbook-seven.vercel.app](wormbook-seven.vercel.app)
+[https://wormbook-seven.vercel.app](https://wormbook-seven.vercel.app)
 ## ✨ Features
 
 ### 🏠 Homepage
