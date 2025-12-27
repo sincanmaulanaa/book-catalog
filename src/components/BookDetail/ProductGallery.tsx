@@ -18,7 +18,7 @@ export function ProductGallery({
   return (
     <div className='space-y-4'>
       {/* Main Image */}
-      <div className='relative aspect-square overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl dark:border-slate-700 dark:bg-slate-800'>
+      <div className='relative aspect-square overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800'>
         <Image
           src={mainImage}
           alt={`Sampul ${title}`}
