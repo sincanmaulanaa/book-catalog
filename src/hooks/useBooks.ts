@@ -37,9 +37,12 @@ export function useBooks(options: UseBooksOptions = {}): UseBooksResult {
   const loadBooks = useCallback(async () => {
     setIsLoading(true);
     setError(null);
+    setBooks([]); // Clear books immediately to prevent stale data showing with loading
 
     try {
-      const response = await fetchBooks(30);
+      // Fetch 12 books for "Semua Buku", fetch all (100) for specific category
+      const limit = category ? 100 : 12;
+      const response = await fetchBooks(limit);
       const searchableBooks = response.products.map(createSearchableBook);
       setBooks(searchableBooks);
     } catch (err) {
@@ -49,11 +52,11 @@ export function useBooks(options: UseBooksOptions = {}): UseBooksResult {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [category]);
 
   useEffect(() => {
     loadBooks();
-  }, [loadBooks]);
+  }, [loadBooks, category]);
 
   // Memoize filtered books to avoid recalculation on every render
   const filteredBooks = useMemo(() => {

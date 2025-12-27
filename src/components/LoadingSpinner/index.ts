@@ -1,1 +1,1 @@
-export { LoadingSpinner } from './LoadingSpinner';
+export { LoadingSkeleton } from './LoadingSkeleton';
