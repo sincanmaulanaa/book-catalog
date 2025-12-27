@@ -2,7 +2,7 @@
  * API utilities for fetching book data
  */
 
-import type { BooksApiResponse } from '@/types/book';
+import type { Book, BooksApiResponse } from '@/types/book';
 
 const API_BASE_URL = 'https://dummyjson.com';
 
@@ -37,5 +37,35 @@ export async function fetchBooks(limit = 12): Promise<BooksApiResponse> {
       throw error;
     }
     throw new ApiError('Network error: Unable to connect to the server');
+  }
+}
+
+/**
+ * Fetches a single book by ID
+ * @param id - Book ID
+ */
+export async function fetchBookById(id: number): Promise<Book> {
+  const url = `${API_BASE_URL}/products/${id}`;
+
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      if (response.status === 404) {
+        throw new ApiError('Buku tidak ditemukan', 404);
+      }
+      throw new ApiError(
+        `Gagal memuat buku: ${response.statusText}`,
+        response.status
+      );
+    }
+
+    const data: Book = await response.json();
+    return data;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      throw error;
+    }
+    throw new ApiError('Kesalahan jaringan: Tidak dapat terhubung ke server');
   }
 }
