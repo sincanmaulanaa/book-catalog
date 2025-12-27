@@ -1,6 +1,6 @@
 export default function BookDetailLoading() {
   return (
-    <main className='min-h-screen bg-linear-to-br from-slate-50 via-white to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-950'>
+    <main className='min-h-screen bg-white dark:bg-slate-900'>
       {/* Navigation Skeleton */}
       <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8'>
         <div className='h-5 w-40 animate-pulse rounded bg-slate-200 dark:bg-slate-700' />

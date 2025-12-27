@@ -2,12 +2,12 @@ import Link from 'next/link';
 
 export default function BookNotFound() {
   return (
-    <main className='flex min-h-screen items-center justify-center bg-linear-to-br from-slate-50 via-white to-indigo-50 px-4 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-950'>
+    <main className='flex min-h-screen items-center justify-center bg-white px-4 dark:bg-slate-900'>
       <div className='text-center'>
         {/* Illustration */}
-        <div className='mx-auto mb-8 flex h-32 w-32 items-center justify-center rounded-full bg-linear-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/50 dark:to-purple-900/50'>
+        <div className='mx-auto mb-8 flex h-32 w-32 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50'>
           <svg
-            className='h-16 w-16 text-indigo-500 dark:text-indigo-400'
+            className='h-16 w-16 text-emerald-500 dark:text-emerald-400'
             fill='none'
             stroke='currentColor'
             viewBox='0 0 24 24'
@@ -32,7 +32,7 @@ export default function BookNotFound() {
         {/* Action */}
         <Link
           href='/'
-          className='inline-flex items-center gap-2 rounded-2xl bg-linear-to-r from-indigo-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-lg shadow-indigo-500/30 transition-all hover:from-indigo-500 hover:to-purple-500 hover:shadow-xl hover:shadow-indigo-500/40'
+          className='inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-emerald-700'
         >
           <svg
             className='h-5 w-5'
