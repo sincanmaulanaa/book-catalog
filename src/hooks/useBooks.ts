@@ -6,6 +6,10 @@ import { fetchBooks, ApiError } from '@/lib/api';
 import { createSearchableBook, filterBooks } from '@/utils/search';
 import { useDebounce } from './useDebounce';
 
+interface UseBooksOptions {
+  category?: string | null;
+}
+
 interface UseBooksResult {
   books: SearchableBook[];
   filteredBooks: SearchableBook[];
@@ -20,7 +24,8 @@ interface UseBooksResult {
  * Custom hook for fetching and filtering books
  * Handles loading states, errors, and debounced search
  */
-export function useBooks(): UseBooksResult {
+export function useBooks(options: UseBooksOptions = {}): UseBooksResult {
+  const { category } = options;
   const [books, setBooks] = useState<SearchableBook[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -34,7 +39,7 @@ export function useBooks(): UseBooksResult {
     setError(null);
 
     try {
-      const response = await fetchBooks(12);
+      const response = await fetchBooks(30);
       const searchableBooks = response.products.map(createSearchableBook);
       setBooks(searchableBooks);
     } catch (err) {
@@ -51,10 +56,17 @@ export function useBooks(): UseBooksResult {
   }, [loadBooks]);
 
   // Memoize filtered books to avoid recalculation on every render
-  const filteredBooks = useMemo(
-    () => filterBooks(books, debouncedQuery),
-    [books, debouncedQuery]
-  );
+  const filteredBooks = useMemo(() => {
+    let result = books;
+
+    // Filter by category first
+    if (category) {
+      result = result.filter((book) => book.category === category);
+    }
+
+    // Then filter by search query
+    return filterBooks(result, debouncedQuery);
+  }, [books, debouncedQuery, category]);
 
   // Stable callback for search input
   const handleSearchChange = useCallback((query: string) => {
