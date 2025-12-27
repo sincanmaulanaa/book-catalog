@@ -45,7 +45,7 @@ export function Header({ onMenuClick, showMenuButton = true }: HeaderProps) {
               alt='Bookworm'
               width={140}
               height={40}
-              className='h-9 w-auto dark:brightness-0 dark:invert'
+              className='h-12 w-auto dark:brightness-0 dark:invert'
               priority
             />
           </Link>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface Category {
   id: string;
@@ -100,8 +101,19 @@ export function Sidebar({
   isOpen = false,
   onClose,
 }: SidebarProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+
   const handleCategoryClick = useCallback(
     (categoryId: string) => {
+      // If not on home page, navigate to home first
+      if (!isHomePage) {
+        router.push('/');
+        onClose?.();
+        return;
+      }
+
       // Toggle: if already selected, deselect (show all)
       if (selectedCategory === categoryId) {
         onCategoryChange(null);
@@ -111,13 +123,20 @@ export function Sidebar({
       // Close mobile sidebar after selection
       onClose?.();
     },
-    [selectedCategory, onCategoryChange, onClose]
+    [selectedCategory, onCategoryChange, onClose, isHomePage, router]
   );
 
   const handleAllProductsClick = useCallback(() => {
+    // If not on home page, navigate to home first
+    if (!isHomePage) {
+      router.push('/');
+      onClose?.();
+      return;
+    }
+
     onCategoryChange(null);
     onClose?.();
-  }, [onCategoryChange, onClose]);
+  }, [onCategoryChange, onClose, isHomePage, router]);
 
   return (
     <>
