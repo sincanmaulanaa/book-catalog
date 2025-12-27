@@ -15,9 +15,40 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Katalog Buku Modern | Temukan Bacaan Favoritmu',
+  title: 'Bookworm | Temukan Bacaan Favoritmu',
   description:
-    'Jelajahi koleksi buku pilihan kami. Cari berdasarkan judul, genre, atau penerbit untuk menemukan bacaan favoritmu.',
+    'Eksplorasi ribuan koleksi buku terbaik. Temukan kisah yang menginspirasi dan pengetahuan baru setiap hari.',
+  keywords: ['bookworm', 'katalog', 'buku', 'bacaan', 'literasi', 'toko buku'],
+  authors: [{ name: 'Bookworm Team' }],
+  creator: 'Bookworm',
+  publisher: 'Bookworm',
+  manifest: '/site.webmanifest',
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Bookworm',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'id_ID',
+    siteName: 'Bookworm',
+    title: 'Bookworm | Temukan Bacaan Favoritmu',
+    description:
+      'Eksplorasi ribuan koleksi buku terbaik. Temukan kisah yang menginspirasi dan pengetahuan baru setiap hari.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bookworm | Temukan Bacaan Favoritmu',
+    description:
+      'Eksplorasi ribuan koleksi buku terbaik. Temukan kisah yang menginspirasi dan pengetahuan baru setiap hari.',
+  },
 };
 
 export default function RootLayout({
