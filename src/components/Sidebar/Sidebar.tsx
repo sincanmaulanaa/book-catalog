@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useCallback } from 'react';
 
 interface Category {
@@ -133,7 +132,7 @@ export function Sidebar({
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 shrink-0 transform border-r border-slate-200 bg-white p-6 transition-transform duration-300 ease-in-out dark:border-slate-800 dark:bg-slate-900 lg:relative lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 top-0 z-50 w-64 shrink-0 transform overflow-y-auto border-r border-slate-200 bg-white p-6 pt-20 transition-transform duration-300 ease-in-out lg:sticky lg:top-0 lg:h-[calc(100vh-64px)] lg:translate-x-0 lg:pt-6 dark:border-slate-800 dark:bg-slate-900 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -157,18 +156,6 @@ export function Sidebar({
             />
           </svg>
         </button>
-
-        {/* Logo */}
-        <div className='mb-8'>
-          <Image
-            src='/logo-with-name.png'
-            alt='Bookworm'
-            width={140}
-            height={64}
-            className='h-16 w-auto dark:brightness-0 dark:invert'
-            priority
-          />
-        </div>
 
         {/* Category Label */}
         <p className='mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500'>

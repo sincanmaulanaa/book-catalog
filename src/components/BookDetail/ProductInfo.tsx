@@ -1,8 +1,11 @@
 import { RatingStars } from '@/components/RatingStars';
 import { AvailabilityBadge } from '@/components/AvailabilityBadge';
+import { AddToCartButton } from '@/components/AddToCartButton';
 
 interface ProductInfoProps {
+  id: number;
   title: string;
+  thumbnail: string;
   category: string;
   tags?: string[];
   brand?: string;
@@ -16,7 +19,9 @@ interface ProductInfoProps {
 }
 
 export function ProductInfo({
+  id,
   title,
+  thumbnail,
   category,
   tags,
   brand,
@@ -101,12 +106,17 @@ export function ProductInfo({
       </div>
 
       {/* CTA Button */}
-      <button
-        type='button'
-        className='w-full rounded-2xl bg-emerald-600 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-emerald-700 active:scale-[0.98]'
-      >
-        Tambah ke Keranjang
-      </button>
+      <AddToCartButton
+        book={{
+          id,
+          title,
+          thumbnail,
+          price,
+          discountPercentage: discountPercentage || 0,
+          brand,
+        }}
+        stock={stock}
+      />
     </div>
   );
 }

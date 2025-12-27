@@ -13,3 +13,6 @@ export { HomeClient } from './HomeClient';
 export { AppLayout } from './AppLayout';
 export { BookDetailClient } from './BookDetailClient';
 export { HeroSection } from './HeroSection';
+export { AddToCartButton } from './AddToCartButton';
+export { CartButton } from './CartButton';
+export { Header } from './Header';

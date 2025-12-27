@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { DM_Sans, DM_Mono } from 'next/font/google';
+import { CartProvider } from '@/contexts';
 import './globals.css';
 
 const dmSans = DM_Sans({
@@ -59,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang='id'>
       <body className={`${dmSans.variable} ${dmMono.variable} antialiased`}>
-        {children}
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );

@@ -56,7 +56,9 @@ export default async function BookDetailPage({ params }: BookDetailPageProps) {
 
             {/* Right Column - Details */}
             <ProductInfo
+              id={book.id}
               title={book.title}
+              thumbnail={book.thumbnail}
               category={book.category}
               tags={book.tags}
               brand={book.brand}
