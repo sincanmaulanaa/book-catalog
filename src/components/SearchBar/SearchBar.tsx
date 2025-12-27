@@ -15,7 +15,7 @@ interface SearchBarProps {
 export function SearchBar({
   value,
   onChange,
-  placeholder = 'Cari buku berdasarkan judul, genre, atau penerbit...',
+  placeholder = 'Cari...',
 }: SearchBarProps) {
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,9 +31,9 @@ export function SearchBar({
   }, [onChange]);
 
   return (
-    <div className='relative w-full max-w-2xl'>
+    <div className='relative w-full max-w-xs'>
       {/* Search Icon */}
-      <div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-5'>
+      <div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
         <SearchIcon />
       </div>
 
@@ -43,7 +43,7 @@ export function SearchBar({
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
-        className='w-full rounded-2xl border-2 border-slate-200 bg-white py-4 pl-14 pr-14 text-base text-slate-900 placeholder-slate-400 shadow-lg shadow-slate-200/50 transition-all duration-300 focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder-slate-500 dark:shadow-slate-900/50 dark:focus:border-indigo-400 dark:focus:ring-indigo-400/20'
+        className='w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-10 pr-10 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-emerald-400 dark:focus:ring-emerald-400/20'
         aria-label='Cari buku'
         autoComplete='off'
         spellCheck={false}

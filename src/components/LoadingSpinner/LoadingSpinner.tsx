@@ -12,7 +12,7 @@ export function LoadingSpinner() {
         {/* Outer ring */}
         <div className='h-14 w-14 rounded-full border-4 border-slate-200 dark:border-slate-700' />
         {/* Spinning segment */}
-        <div className='absolute inset-0 h-14 w-14 animate-spin rounded-full border-4 border-transparent border-t-indigo-600 dark:border-t-indigo-400' />
+        <div className='absolute inset-0 h-14 w-14 animate-spin rounded-full border-4 border-transparent border-t-emerald-600 dark:border-t-emerald-400' />
       </div>
       <p className='mt-5 text-sm font-medium text-slate-500 dark:text-slate-400'>
         Memuat buku...
