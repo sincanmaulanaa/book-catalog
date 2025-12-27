@@ -1,0 +1,1 @@
+export { BookDetailClient } from './BookDetailClient';
