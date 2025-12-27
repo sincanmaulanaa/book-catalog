@@ -53,26 +53,6 @@ export function Header({ onMenuClick, showMenuButton = true }: HeaderProps) {
 
         {/* Right Section */}
         <div className='flex items-center gap-3'>
-          {/* Search Button - Optional for future */}
-          <button
-            className='hidden rounded-lg p-2 text-slate-600 hover:bg-slate-100 sm:block dark:text-slate-400 dark:hover:bg-slate-800'
-            aria-label='Cari buku'
-          >
-            <svg
-              className='h-5 w-5'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
-              />
-            </svg>
-          </button>
-
           {/* Cart Button */}
           <CartButton />
         </div>
