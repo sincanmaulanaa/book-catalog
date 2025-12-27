@@ -53,7 +53,7 @@ export function BookCatalog({ category }: BookCatalogProps) {
               </svg>
             </button>
             <h1 className='text-xl font-bold text-slate-900 dark:text-white'>
-              Produk{' '}
+              Buku{' '}
               <span className='font-normal text-slate-500'>
                 ({filteredBooks.length})
               </span>
