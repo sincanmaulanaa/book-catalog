@@ -53,9 +53,9 @@ export function BookCard({ book }: BookCardProps) {
       </div>
 
       {/* Hover Overlay - Read Button */}
-      <div className='pointer-events-none absolute inset-0 flex items-end justify-center pb-20 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100'>
+      <div className='pointer-events-none absolute inset-0 flex items-end justify-center pb-24 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100'>
         <span className='rounded-lg bg-emerald-600 px-6 py-2 text-sm font-semibold text-white shadow-lg'>
-          Baca Buku
+          Selengkapnya
         </span>
       </div>
 
