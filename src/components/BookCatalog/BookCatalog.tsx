@@ -5,7 +5,7 @@ import {
   SearchBar,
   BookGrid,
   EmptyState,
-  LoadingSpinner,
+  LoadingSkeleton,
   ErrorState,
 } from '@/components';
 
@@ -64,7 +64,7 @@ export function BookCatalog({ category }: BookCatalogProps) {
       </div>
 
       {/* Content States */}
-      {isLoading && <LoadingSpinner />}
+      {isLoading && <LoadingSkeleton />}
 
       {error && <ErrorState message={error} onRetry={retry} />}
 

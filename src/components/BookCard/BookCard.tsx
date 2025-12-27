@@ -48,7 +48,12 @@ export function BookCard({ book }: BookCardProps) {
 
         {/* Price */}
         <p className='mt-2 text-sm font-bold text-emerald-600 dark:text-emerald-400'>
-          ${price.toFixed(2)}
+          {new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          }).format(price * 16000)}
         </p>
       </div>
 

@@ -4,7 +4,7 @@ export { BookCatalog } from './BookCatalog';
 export { BookGrid } from './BookGrid';
 export { SearchBar } from './SearchBar';
 export { EmptyState } from './EmptyState';
-export { LoadingSpinner } from './LoadingSpinner';
+export { LoadingSkeleton } from './LoadingSpinner/LoadingSkeleton';
 export { ErrorState } from './ErrorState';
 export { RatingStars } from './RatingStars';
 export { AvailabilityBadge } from './AvailabilityBadge';
