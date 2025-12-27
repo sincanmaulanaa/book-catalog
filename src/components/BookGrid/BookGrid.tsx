@@ -14,7 +14,7 @@ export function BookGrid({ books }: BookGridProps) {
     <div
       className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
       role='list'
-      aria-label='Book catalog'
+      aria-label='Katalog buku'
     >
       {books.map((book) => (
         <div key={book.id} role='listitem'>

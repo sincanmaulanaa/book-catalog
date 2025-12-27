@@ -28,7 +28,7 @@ export function BookCatalog() {
   const showEmptyState = !isLoading && !error && !hasBooks;
 
   return (
-    <div className='flex flex-col gap-8'>
+    <div className='flex flex-col gap-10'>
       {/* Search Section */}
       <div className='flex justify-center'>
         <SearchBar value={searchQuery} onChange={setSearchQuery} />
@@ -36,12 +36,8 @@ export function BookCatalog() {
 
       {/* Results Count */}
       {!isLoading && !error && (
-        <p className='text-center text-sm text-zinc-500 dark:text-zinc-400'>
-          {hasBooks
-            ? `Showing ${filteredBooks.length} book${
-                filteredBooks.length !== 1 ? 's' : ''
-              }`
-            : null}
+        <p className='text-center text-sm font-medium text-slate-500 dark:text-slate-400'>
+          {hasBooks ? `Menampilkan ${filteredBooks.length} buku` : null}
         </p>
       )}
 

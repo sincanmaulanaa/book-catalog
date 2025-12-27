@@ -15,8 +15,9 @@ export function AvailabilityBadge({ status, stock }: AvailabilityBadgeProps) {
 
   return (
     <span
-      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${styles}`}
+      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${styles}`}
     >
+      <span className='h-1.5 w-1.5 rounded-full bg-current opacity-70' />
       {normalizedStatus}
     </span>
   );
@@ -26,25 +27,25 @@ function normalizeStatus(status: string, stock: number): AvailabilityStatus {
   const lowerStatus = status.toLowerCase();
 
   if (stock === 0 || lowerStatus.includes('out')) {
-    return 'Out of Stock';
+    return 'Habis';
   }
 
   if (stock <= 5 || lowerStatus.includes('low')) {
-    return 'Low Stock';
+    return 'Stok Terbatas';
   }
 
-  return 'In Stock';
+  return 'Tersedia';
 }
 
 function getStatusStyles(status: AvailabilityStatus): string {
   switch (status) {
-    case 'In Stock':
-      return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400';
-    case 'Low Stock':
-      return 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400';
-    case 'Out of Stock':
-      return 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400';
+    case 'Tersedia':
+      return 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400';
+    case 'Stok Terbatas':
+      return 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400';
+    case 'Habis':
+      return 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400';
     default:
-      return 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-300';
+      return 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300';
   }
 }
