@@ -23,7 +23,7 @@ export interface BooksApiResponse {
   limit: number;
 }
 
-export type AvailabilityStatus = 'In Stock' | 'Low Stock' | 'Out of Stock';
+export type AvailabilityStatus = 'Tersedia' | 'Stok Terbatas' | 'Habis';
 
 export interface SearchableBook extends Book {
   searchableText: string; // Pre-computed lowercase searchable string
