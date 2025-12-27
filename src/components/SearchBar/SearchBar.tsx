@@ -15,7 +15,7 @@ interface SearchBarProps {
 export function SearchBar({
   value,
   onChange,
-  placeholder = 'Search by title, genre, or publisher...',
+  placeholder = 'Cari buku berdasarkan judul, genre, atau penerbit...',
 }: SearchBarProps) {
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,9 +31,9 @@ export function SearchBar({
   }, [onChange]);
 
   return (
-    <div className='relative w-full max-w-xl'>
+    <div className='relative w-full max-w-2xl'>
       {/* Search Icon */}
-      <div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4'>
+      <div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-5'>
         <SearchIcon />
       </div>
 
@@ -43,8 +43,8 @@ export function SearchBar({
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
-        className='w-full rounded-full border border-zinc-300 bg-white py-3 pl-12 pr-12 text-base text-zinc-900 placeholder-zinc-500 shadow-sm transition-all duration-200 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder-zinc-400 dark:focus:border-blue-400'
-        aria-label='Search books'
+        className='w-full rounded-2xl border-2 border-slate-200 bg-white py-4 pl-14 pr-14 text-base text-slate-900 placeholder-slate-400 shadow-lg shadow-slate-200/50 transition-all duration-300 focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder-slate-500 dark:shadow-slate-900/50 dark:focus:border-indigo-400 dark:focus:ring-indigo-400/20'
+        aria-label='Cari buku'
         autoComplete='off'
         spellCheck={false}
       />
@@ -54,8 +54,8 @@ export function SearchBar({
         <button
           type='button'
           onClick={handleClear}
-          className='absolute inset-y-0 right-0 flex items-center pr-4 text-zinc-400 transition-colors hover:text-zinc-600 dark:hover:text-zinc-300'
-          aria-label='Clear search'
+          className='absolute inset-y-0 right-0 flex items-center pr-5 text-slate-400 transition-colors hover:text-slate-600 dark:hover:text-slate-300'
+          aria-label='Hapus pencarian'
         >
           <ClearIcon />
         </button>
@@ -67,7 +67,7 @@ export function SearchBar({
 function SearchIcon() {
   return (
     <svg
-      className='h-5 w-5 text-zinc-400'
+      className='h-5 w-5 text-slate-400'
       fill='none'
       stroke='currentColor'
       viewBox='0 0 24 24'

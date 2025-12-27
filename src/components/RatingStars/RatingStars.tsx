@@ -14,9 +14,9 @@ export function RatingStars({ rating, maxRating = 5 }: RatingStarsProps) {
 
   return (
     <div
-      className='flex items-center gap-0.5'
+      className='flex items-center gap-1'
       role='img'
-      aria-label={`Rating: ${rating.toFixed(1)} out of ${maxRating} stars`}
+      aria-label={`Rating: ${rating.toFixed(1)} dari ${maxRating} bintang`}
     >
       {/* Full stars */}
       {Array.from({ length: fullStars }, (_, i) => (
@@ -31,7 +31,7 @@ export function RatingStars({ rating, maxRating = 5 }: RatingStarsProps) {
         <StarIcon key={`empty-${i}`} />
       ))}
 
-      <span className='ml-1.5 text-sm text-zinc-600 dark:text-zinc-400'>
+      <span className='ml-2 text-sm font-semibold text-slate-600 dark:text-slate-400'>
         {rating.toFixed(1)}
       </span>
     </div>
@@ -47,15 +47,15 @@ function StarIcon({ filled = false, half = false }: StarIconProps) {
   if (half) {
     return (
       <svg
-        className='h-4 w-4'
+        className='h-5 w-5'
         viewBox='0 0 20 20'
         fill='none'
         aria-hidden='true'
       >
         <defs>
           <linearGradient id='halfGradient'>
-            <stop offset='50%' stopColor='#FBBF24' />
-            <stop offset='50%' stopColor='#D1D5DB' />
+            <stop offset='50%' stopColor='#F59E0B' />
+            <stop offset='50%' stopColor='#E2E8F0' />
           </linearGradient>
         </defs>
         <path
@@ -68,8 +68,8 @@ function StarIcon({ filled = false, half = false }: StarIconProps) {
 
   return (
     <svg
-      className={`h-4 w-4 ${
-        filled ? 'text-amber-400' : 'text-zinc-300 dark:text-zinc-600'
+      className={`h-5 w-5 ${
+        filled ? 'text-amber-500' : 'text-slate-300 dark:text-slate-600'
       }`}
       viewBox='0 0 20 20'
       fill='currentColor'
