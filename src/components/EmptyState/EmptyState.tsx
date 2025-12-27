@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface EmptyStateProps {
   query?: string;
 }
@@ -8,64 +10,103 @@ interface EmptyStateProps {
  */
 export function EmptyState({ query }: EmptyStateProps) {
   return (
-    <div className='flex flex-col items-center justify-center py-20 px-4 text-center'>
-      {/* Illustration */}
-      <div className='mb-8 rounded-3xl bg-emerald-100 p-8 dark:bg-emerald-900/30'>
-        <BookSearchIcon />
+    <div className='flex flex-col items-center justify-center px-4 py-16 text-center'>
+      {/* Decorative Background */}
+      <div className='relative'>
+        {/* Floating decorative elements */}
+        <div className='absolute -left-8 -top-4 h-16 w-16 animate-pulse rounded-full bg-emerald-200/50 blur-xl dark:bg-emerald-800/30' />
+        <div className='absolute -right-6 top-8 h-12 w-12 animate-pulse rounded-full bg-emerald-300/40 blur-lg delay-75 dark:bg-emerald-700/30' />
+        <div className='absolute -bottom-4 left-4 h-10 w-10 animate-pulse rounded-full bg-emerald-100/60 blur-md delay-150 dark:bg-emerald-900/40' />
+
+        {/* Main Illustration */}
+        <div className='relative mb-8'>
+          <Image
+            src='/illustrations/empty-state.svg'
+            alt='Tidak ada hasil'
+            width={200}
+            height={200}
+            className='drop-shadow-lg'
+            priority
+          />
+        </div>
       </div>
 
       {/* Message */}
-      <h3 className='mb-3 text-2xl font-bold text-slate-900 dark:text-slate-100'>
-        Buku Tidak Ditemukan
-      </h3>
+      <div className='mb-8 max-w-md'>
+        <h3 className='mb-3 text-2xl font-bold text-slate-900 dark:text-slate-100 sm:text-3xl'>
+          {query ? 'Oops! Tidak Ada Hasil' : 'Belum Ada Buku'}
+        </h3>
 
-      <p className='mb-8 max-w-md text-base leading-relaxed text-slate-600 dark:text-slate-400'>
-        {query ? (
-          <>
-            Kami tidak menemukan buku yang cocok dengan{' '}
-            <span className='font-semibold text-emerald-600 dark:text-emerald-400'>
-              &quot;{query}&quot;
-            </span>
-          </>
-        ) : (
-          'Tidak ada buku untuk ditampilkan saat ini.'
-        )}
-      </p>
-
-      {/* Suggestions */}
-      <div className='rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800/50'>
-        <p className='mb-4 text-sm font-semibold text-slate-700 dark:text-slate-300'>
-          Coba saran berikut:
+        <p className='text-base leading-relaxed text-slate-600 dark:text-slate-400'>
+          {query ? (
+            <>
+              Pencarian untuk{' '}
+              <span className='inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-0.5 font-semibold text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-400'>
+                <SearchIcon />
+                {query}
+              </span>{' '}
+              tidak menghasilkan apapun
+            </>
+          ) : (
+            'Tidak ada buku untuk ditampilkan saat ini. Coba lagi nanti!'
+          )}
         </p>
-        <ul className='space-y-3 text-sm text-slate-600 dark:text-slate-400'>
-          <li className='flex items-center gap-3'>
-            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50'>
-              <CheckIcon />
+      </div>
+
+      {/* Suggestions Card */}
+      <div className='w-full max-w-md'>
+        <div className='overflow-hidden rounded-2xl border border-slate-200/80 bg-linear-to-br from-white to-slate-50  dark:border-slate-700/80 dark:from-slate-800 dark:to-slate-800/50'>
+          {/* Card Header */}
+          <div className='border-b border-slate-100 bg-emerald-50/50 px-6 py-4 dark:border-slate-700 dark:bg-emerald-900/20'>
+            <div className='flex items-center gap-2'>
+              <div className='flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50'>
+                <LightbulbIcon />
+              </div>
+              <p className='font-semibold text-slate-800 dark:text-slate-200'>
+                Tips Pencarian
+              </p>
             </div>
-            Periksa kembali ejaan pencarianmu
-          </li>
-          <li className='flex items-center gap-3'>
-            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50'>
-              <CheckIcon />
-            </div>
-            Gunakan kata kunci yang lebih umum
-          </li>
-          <li className='flex items-center gap-3'>
-            <div className='flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50'>
-              <CheckIcon />
-            </div>
-            Coba cari berdasarkan genre atau penerbit
-          </li>
-        </ul>
+          </div>
+
+          {/* Card Body */}
+          <div className='p-6'>
+            <ul className='space-y-4 text-left text-sm'>
+              <li className='flex items-start gap-3'>
+                <div className='mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm'>
+                  <span className='text-xs font-bold'>1</span>
+                </div>
+                <span className='text-slate-600 dark:text-slate-400'>
+                  Periksa ejaan kata kunci pencarianmu
+                </span>
+              </li>
+              <li className='flex items-start gap-3'>
+                <div className='mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm'>
+                  <span className='text-xs font-bold'>2</span>
+                </div>
+                <span className='text-slate-600 dark:text-slate-400'>
+                  Gunakan kata kunci yang lebih umum atau singkat
+                </span>
+              </li>
+              <li className='flex items-start gap-3'>
+                <div className='mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm'>
+                  <span className='text-xs font-bold'>3</span>
+                </div>
+                <span className='text-slate-600 dark:text-slate-400'>
+                  Coba pilih kategori yang berbeda di sidebar
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-function BookSearchIcon() {
+function SearchIcon() {
   return (
     <svg
-      className='h-16 w-16 text-emerald-500 dark:text-emerald-400'
+      className='h-3.5 w-3.5'
       fill='none'
       stroke='currentColor'
       viewBox='0 0 24 24'
@@ -74,19 +115,17 @@ function BookSearchIcon() {
       <path
         strokeLinecap='round'
         strokeLinejoin='round'
-        strokeWidth={1.5}
-        d='M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25'
+        strokeWidth={2}
+        d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
       />
-      <circle cx='18' cy='6' r='3' strokeWidth={1.5} />
-      <path strokeLinecap='round' strokeWidth={1.5} d='M20 8l2 2' />
     </svg>
   );
 }
 
-function CheckIcon() {
+function LightbulbIcon() {
   return (
     <svg
-      className='h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400'
+      className='h-4 w-4 text-emerald-600 dark:text-emerald-400'
       fill='none'
       stroke='currentColor'
       viewBox='0 0 24 24'
@@ -95,8 +134,27 @@ function CheckIcon() {
       <path
         strokeLinecap='round'
         strokeLinejoin='round'
-        strokeWidth={2.5}
-        d='M5 13l4 4L19 7'
+        strokeWidth={2}
+        d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
+      />
+    </svg>
+  );
+}
+
+function RefreshIcon() {
+  return (
+    <svg
+      className='h-4 w-4'
+      fill='none'
+      stroke='currentColor'
+      viewBox='0 0 24 24'
+      aria-hidden='true'
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth={2}
+        d='M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15'
       />
     </svg>
   );
