@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { BookCatalog, Sidebar } from '@/components';
+import { BookCatalog, Sidebar, HeroSection } from '@/components';
 
 export function HomeClient() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -62,6 +62,9 @@ export function HomeClient() {
         </header>
 
         <main className='p-4 lg:p-8'>
+          {/* Hero Section - only show when no category filter */}
+          {selectedCategory === null && <HeroSection />}
+
           <BookCatalog category={selectedCategory} />
         </main>
       </div>

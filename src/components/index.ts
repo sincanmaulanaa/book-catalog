@@ -12,3 +12,4 @@ export { Sidebar } from './Sidebar';
 export { HomeClient } from './HomeClient';
 export { AppLayout } from './AppLayout';
 export { BookDetailClient } from './BookDetailClient';
+export { HeroSection } from './HeroSection';
