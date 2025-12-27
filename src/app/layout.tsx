@@ -1,21 +1,23 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { DM_Sans, DM_Mono } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const dmSans = DM_Sans({
+  variable: '--font-dm-sans',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const dmMono = DM_Mono({
+  variable: '--font-dm-mono',
   subsets: ['latin'],
+  weight: ['400', '500'],
 });
 
 export const metadata: Metadata = {
-  title: 'Book Catalog | Discover Your Next Read',
+  title: 'Katalog Buku Modern | Temukan Bacaan Favoritmu',
   description:
-    'Browse our curated collection of books. Search by title, genre, or publisher to find your next favorite read.',
+    'Jelajahi koleksi buku pilihan kami. Cari berdasarkan judul, genre, atau penerbit untuk menemukan bacaan favoritmu.',
 };
 
 export default function RootLayout({
@@ -24,10 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang='id'>
+      <body className={`${dmSans.variable} ${dmMono.variable} antialiased`}>
         {children}
       </body>
     </html>
