@@ -8,3 +8,5 @@ export { LoadingSpinner } from './LoadingSpinner';
 export { ErrorState } from './ErrorState';
 export { RatingStars } from './RatingStars';
 export { AvailabilityBadge } from './AvailabilityBadge';
+export { Sidebar } from './Sidebar';
+export { HomeClient } from './HomeClient';
